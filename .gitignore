@@ -1,6 +1,8 @@
+.idea
 node_modules
 /build
 /.react-router
 .DS_Store
 cdk.out
+cdk.context.json
 .env
