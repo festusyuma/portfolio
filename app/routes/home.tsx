@@ -5,12 +5,17 @@ import { ContactForm } from "~/components/ContactForm";
 import { HlsVideo } from "~/components/HlsVideo";
 import { SectionHeading, Tag } from "~/components/SectionHeading";
 import { clientWork, community, experience, metrics, openSource, profile, skills } from "~/data/profile";
+import { pageMeta, personJsonLd } from "~/data/seo";
 import type { Route } from "./+types/home";
 
 export function meta(_: Route.MetaArgs) {
   return [
-    { title: `${profile.name} · ${profile.title}` },
-    { name: "description", content: profile.summary },
+    ...pageMeta({
+      title: `${profile.name} (${profile.handle}) · ${profile.title}`,
+      description: `${profile.name} (${profile.handle}) is a senior software engineer in Lagos, Nigeria, building backend systems and cloud infrastructure with Rust, Node.js and AWS.`,
+      path: "/",
+    }),
+    { "script:ld+json": personJsonLd },
   ];
 }
 

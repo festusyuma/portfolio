@@ -1,12 +1,14 @@
 import { ContactForm } from "~/components/ContactForm";
 import { CONTACT_EMAIL, profile } from "~/data/profile";
+import { pageMeta } from "~/data/seo";
 import type { Route } from "./+types/contact";
 
 export function meta(_: Route.MetaArgs) {
-  return [
-    { title: `Contact · ${profile.name}` },
-    { name: "description", content: `Email ${profile.name} at ${CONTACT_EMAIL}.` },
-  ];
+  return pageMeta({
+    title: `Contact ${profile.name} (${profile.handle})`,
+    description: `Get in touch with ${profile.name} (${profile.handle}), senior software engineer, about backend roles, contract builds or AWS reviews. Email ${CONTACT_EMAIL}.`,
+    path: "/contact/",
+  });
 }
 
 export default function Contact() {
