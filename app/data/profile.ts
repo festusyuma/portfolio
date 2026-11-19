@@ -6,7 +6,7 @@ export const profile = {
   title: "Senior Software Engineer",
   location: "Lagos, Nigeria · Remote",
   summary:
-    "I build the parts of software most people never see: backend services, data pipelines, and the cloud infrastructure they run on. 7+ years shipping Rust, Node.js and AWS systems that stay fast and stay cheap as they grow.",
+    "I build the parts of software most people never see: backend services, data pipelines, and the cloud infrastructure they run on. 7+ years shipping Rust, Node.js and AWS systems that stay fast and stay cheap as they grow, including Bambai, a learning platform reaching 10,000+ students across 100+ African schools; Skillpaddy, which has trained 5,000+ students; the white-label promotions system behind Nestlé's Golden Morn and Milo campaigns, with 15M+ entries processed; and banking middleware for Union Bank.",
   links: {
     github: "https://github.com/festusyuma",
     linkedin: "https://www.linkedin.com/in/festusagboma",
@@ -19,7 +19,7 @@ export const metrics = [
   { label: "cloud spend", value: "−50%" },
   { label: "open-source packages", value: "20+" },
   { label: "schools on the platform", value: "100+" },
-  { label: "students served", value: "1k+" },
+  { label: "students served", value: "10k+" },
 ];
 
 export type Job = {
@@ -39,8 +39,8 @@ export const experience: Job[] = [
     period: "Jan 2024 — now",
     mode: "Remote",
     points: [
-      "Work on a Rust (Axum, Tokio) backend that is the source of truth for user state and learning progress across 1,000+ students.",
-      "Core engineer on the Control Panel, the Next.js/Node.js platform 100+ African schools use to configure and monitor their programmes.",
+      "Work on the Rust (Axum, Tokio) backend behind Bambai, the source of truth for user state and learning progress for 10,000+ students.",
+      "Core engineer on the Bambai Control Panel (Next.js, Node.js), which 100+ schools across Africa use to configure and monitor their programmes.",
       "Cut load times on some pages and APIs by up to 90% by fixing MongoDB query and cron-job bottlenecks.",
       "Reworked CDK-managed AWS infrastructure (Lambda, ECS, S3, ALB, CloudFront) and cut cloud costs by over 50%.",
       "Run internal sessions on MongoDB query optimisation and Node.js performance tuning.",
@@ -66,9 +66,9 @@ export const experience: Job[] = [
     period: "Jan 2021 — Dec 2023",
     mode: "Hybrid · Lagos",
     points: [
-      "Led a voucher system that handles millions of redemptions for Nestlé and Milo promos, with code generation and validation in Rust (Tokio).",
-      "Built messaging, transfer and middleware services for Union Bank on Spring Boot, Kafka and Azure.",
-      "Key developer on Skillpaddy, an e-learning platform delivering content over S3 and CloudFront to 1,000+ students.",
+      "Led the white-label promotions system behind Nestlé's Golden Morn and Milo campaigns, processing 15M+ entries, with code generation and validation in Rust (Tokio).",
+      "Built banking middleware for Union Bank: messaging and transfer services on Spring Boot, Kafka and Azure.",
+      "Key developer on Skillpaddy, an e-learning platform that has trained 5,000+ students, with content delivered over S3 and CloudFront.",
     ],
     stack: ["Rust", "Spring Boot", "Kafka", "Azure", "PostgreSQL", "Nuxt"],
   },
@@ -190,6 +190,34 @@ export const clientWork: ClientProject[] = [
       "Web app, admin dashboard and Kotlin Multiplatform mobile app",
     ],
     stack: ["Rust", "Axum", "SQS", "Gemini", "Kotlin MP", "AWS CDK"],
+  },
+];
+
+export type CommunityEvent = {
+  title: string;
+  host: string;
+  audience: string;
+  description: string;
+  video: { src: string; poster: string };
+  photo: { mobile: string; web: string; alt: string };
+};
+
+export const community: CommunityEvent[] = [
+  {
+    title: "Careers panel for teenagers",
+    host: "Assemblies of God Church",
+    audience: "Teenagers",
+    description:
+      "Joined a panel at an Assemblies of God church to talk with teenagers about choosing a career: how I got into software engineering, what the work actually looks like day to day, and how to start building skills early.",
+    video: {
+      src: "/uploads/videos/community-careers-panel/master.m3u8",
+      poster: "/uploads/images/community-careers-panel-poster.webp",
+    },
+    photo: {
+      mobile: "/uploads/images/community-careers-panel-photo-mobile.webp",
+      web: "/uploads/images/community-careers-panel-photo-web.webp",
+      alt: "Festus speaking on the careers panel, microphone in hand, seated with other panelists on stage",
+    },
   },
 ];
 

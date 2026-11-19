@@ -2,8 +2,9 @@ import { Link } from "react-router";
 import { ArchitectureDiagram } from "~/components/ArchitectureDiagram";
 import { AvatarLightbox } from "~/components/AvatarLightbox";
 import { ContactForm } from "~/components/ContactForm";
+import { HlsVideo } from "~/components/HlsVideo";
 import { SectionHeading, Tag } from "~/components/SectionHeading";
-import { clientWork, experience, metrics, openSource, profile, skills } from "~/data/profile";
+import { clientWork, community, experience, metrics, openSource, profile, skills } from "~/data/profile";
 import type { Route } from "./+types/home";
 
 export function meta(_: Route.MetaArgs) {
@@ -55,15 +56,25 @@ export default function Home() {
           <ClientWork />
         </div>
       </section>
-      <section id="stack" className={`${container} py-24`}>
-        <SectionHeading index="05" title="Stack" />
-        <Stack />
+      <section id="community" className={`${container} py-24`}>
+        <SectionHeading
+          index="05"
+          title="Community"
+          lede="Time spent helping the next generation find their way into tech."
+        />
+        <Community />
       </section>
-      <section id="contact" className="border-t border-line bg-surface/40">
+      <section id="stack" className="border-y border-line bg-surface/40">
+        <div className={`${container} py-24`}>
+          <SectionHeading index="06" title="Stack" />
+          <Stack />
+        </div>
+      </section>
+      <section id="contact">
         <div className={`${container} grid gap-10 py-24 lg:grid-cols-[1fr_1.4fr]`}>
           <div>
             <SectionHeading
-              index="06"
+              index="07"
               title="Let's talk"
               lede="Hiring for a backend or platform role, need a product built, or want a second pair of eyes on your infrastructure? Send a message."
             />
@@ -315,6 +326,42 @@ function ClientWork() {
             >
               visit {b.host} ↗
             </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function Community() {
+  return (
+    <div className="space-y-6">
+      {community.map((event) => (
+        <article key={event.title} className="overflow-hidden rounded-xl border border-line bg-surface">
+          <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-2.5 font-mono text-xs">
+            <span className="truncate text-faint">{event.host}</span>
+            <span className="shrink-0 rounded border border-signal/40 px-1.5 py-0.5 text-[10px] tracking-wider text-signal uppercase">
+              talk
+            </span>
+          </div>
+          <div className="grid lg:grid-cols-[1.6fr_1fr]">
+            <div className="border-b border-line lg:border-r lg:border-b-0">
+              <HlsVideo src={event.video.src} poster={event.video.poster} title={event.title} />
+              <div className="p-5 sm:p-6">
+                <p className="font-mono text-xs tracking-widest text-signal uppercase">audience · {event.audience}</p>
+                <h3 className="mt-1 text-2xl font-semibold">{event.title}</h3>
+                <p className="mt-3 text-dim">{event.description}</p>
+              </div>
+            </div>
+            <picture className="block">
+              <source media="(min-width: 1024px)" srcSet={event.photo.web} />
+              <img
+                src={event.photo.mobile}
+                alt={event.photo.alt}
+                loading="lazy"
+                className="aspect-[4/3] size-full object-cover lg:aspect-auto"
+              />
+            </picture>
           </div>
         </article>
       ))}

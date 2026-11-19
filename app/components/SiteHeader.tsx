@@ -5,6 +5,7 @@ const nav = [
   { to: "/#open-source", label: "open-source" },
   { to: "/#architecture", label: "architecture" },
   { to: "/#client-work", label: "client work" },
+  { to: "/#community", label: "community" },
 ];
 
 export function SiteHeader() {
